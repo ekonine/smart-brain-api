@@ -9,13 +9,16 @@ const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
+require('dotenv').config();
+
 const db = knex({
   client: 'pg',
   connection: {
-    host : '127.0.0.1',
-    user : 'aneagoie',
-    password : '',
-    database : 'smart-brain'
+    host : 'localhost',
+    user : process.env.DB_USER,
+    password : process.env.DB_PASS,
+    database : process.env.DB_DATABASE,
+    port : process.env.DB_PORT
   }
 });
 
